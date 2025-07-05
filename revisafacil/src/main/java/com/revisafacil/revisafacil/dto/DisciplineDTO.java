@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.bson.types.ObjectId;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 public class DisciplineDTO {
@@ -24,5 +24,5 @@ public class DisciplineDTO {
 
     private String color;
 
-    private LocalDateTime date;
+    private LocalDate date;
 }

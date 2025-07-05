@@ -5,7 +5,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Document("disciplines")
 @Data
@@ -18,5 +18,5 @@ public class Discipline {
     private String name;
     private String description;
     private String color;
-    private LocalDateTime date;
+    private LocalDate date;
 }

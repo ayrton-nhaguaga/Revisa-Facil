@@ -3,12 +3,14 @@ package com.revisafacil.revisafacil.repository;
 import com.revisafacil.revisafacil.model.Discipline;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface DisciplineRepository extends MongoRepository<Discipline, String> {
 
     Optional<Discipline> findById(ObjectId id);
@@ -20,5 +22,5 @@ public interface DisciplineRepository extends MongoRepository<Discipline, String
     @Override
     List<Discipline> findAll();
 
-    List<Discipline> findByDate(LocalDateTime date);
+    List<Discipline> findByDate(LocalDate date);
 }
