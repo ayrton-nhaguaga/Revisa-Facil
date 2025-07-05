@@ -1,0 +1,27 @@
+package com.revisafacil.revisafacil.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+import org.bson.types.ObjectId;
+
+import java.time.LocalDateTime;
+
+@Data
+public class StudySessionDTO {
+    private ObjectId id;
+
+    @NotBlank
+    private ObjectId userId;
+
+    @NotBlank
+    private ObjectId topicId;
+
+    @NotBlank
+    private LocalDateTime startTime;
+
+    @NotBlank
+    private LocalDateTime endTime;
+
+    @NotBlank
+    private int durationMinutes;
+}
