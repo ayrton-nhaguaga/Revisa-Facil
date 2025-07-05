@@ -24,5 +24,5 @@ public class DisciplineDTO {
 
     private String color;
 
-    private LocalDate date;
+    private LocalDate createAt;
 }

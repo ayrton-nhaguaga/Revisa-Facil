@@ -24,7 +24,7 @@ public class DisciplineService {
         discipline.setDescription(dto.getDescription());
         discipline.setUserId(dto.getUserId());
         discipline.setColor(dto.getColor());
-        discipline.setDate(dto.getDate());
+        discipline.setCreateAt(dto.getCreateAt());
         return disciplineRepository.save(discipline);
     }
 
@@ -44,8 +44,29 @@ public class DisciplineService {
         return disciplineRepository.findByUserId(userId);
     }
 
-    public List<Discipline> getDisciplineByDate(LocalDate date){
-        return disciplineRepository.findByDate(date);
+    public List<Discipline> getDisciplineByDate(LocalDate createAt){
+        return disciplineRepository.findByDate(createAt);
     }
 
+    public List<Discipline> updateDisciplineByName(String name, DisciplineDTO dto){
+        List<Discipline> existes = disciplineRepository.findByNameContainingIgnoreCase(name);
+
+        for (Discipline d : existes){
+            d.setName(dto.getName());
+            d.setColor(dto.getColor());
+            d.setDescription(dto.getDescription());
+            disciplineRepository.save(d);
+        }
+        return existes;
+    }
+
+    public boolean deleteDiscipline(String name){
+        List<Discipline> disciplines = disciplineRepository.findByNameContainingIgnoreCase(name);
+
+        if(!disciplines.isEmpty()){
+            disciplineRepository.deleteAll(disciplines);
+            return  true;
+        }
+        return false;
+    }
 }

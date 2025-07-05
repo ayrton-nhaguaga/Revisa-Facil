@@ -18,5 +18,5 @@ public class Discipline {
     private String name;
     private String description;
     private String color;
-    private LocalDate date;
+    private LocalDate createAt;
 }
