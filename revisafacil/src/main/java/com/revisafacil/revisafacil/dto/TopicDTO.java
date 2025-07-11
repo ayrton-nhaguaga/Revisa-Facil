@@ -3,11 +3,13 @@ package com.revisafacil.revisafacil.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 import org.bson.types.ObjectId;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Data
 public class TopicDTO {
 
     private ObjectId id;
