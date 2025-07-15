@@ -1,5 +1,6 @@
 package com.revisafacil.revisafacil.dto;
 
+import com.revisafacil.revisafacil.model.Topic;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.bson.types.ObjectId;
@@ -14,7 +15,7 @@ public class StudySessionDTO {
     private ObjectId userId;
 
     @NotBlank
-    private ObjectId topicId;
+    private Topic topic;
 
     @NotBlank
     private LocalDateTime startTime;

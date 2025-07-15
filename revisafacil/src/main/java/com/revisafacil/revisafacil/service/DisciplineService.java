@@ -40,9 +40,7 @@ public class DisciplineService {
         return disciplineRepository.findByNameContainingIgnoreCase(name);
     }
 
-    public List<Discipline> getDisciplineByUserId(ObjectId userId){
-        return disciplineRepository.findByUserId(userId);
-    }
+
 
     public List<Discipline> getDisciplineByDate(LocalDate createAt){
         return disciplineRepository.findByCreateAt(createAt);

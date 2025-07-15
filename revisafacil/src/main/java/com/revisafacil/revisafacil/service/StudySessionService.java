@@ -21,38 +21,35 @@ public class StudySessionService {
         StudySession studySession = new StudySession();
         studySession.setId(dto.getId());
         studySession.setUserId(dto.getUserId());
-        studySession.setTopicId(dto.getTopicId());
+        studySession.setTopic(dto.getTopic());
         studySession.setStartTime(dto.getStartTime());
         studySession.setEndTime(dto.getEndTime());
         studySession.setDurationMinutes(dto.getDurationMinutes());
         return studySessionRepository.save(studySession);
     }
 
-    public List<StudySession> findAll(){
+    public List<StudySession> getdAll(){
         return studySessionRepository.findAll();
     }
 
-    public Optional<StudySession> findById(ObjectId id){
+    public Optional<StudySession> getById(ObjectId id){
         return studySessionRepository.findById(id);
     }
 
-    public List<StudySession> findByUserId(ObjectId userId){
-        return studySessionRepository.findByUserId(userId);
+
+    public List<StudySession> getByTopicTitleContainingIgnoreCase(String title){
+        return studySessionRepository.findByTopicTitleContainingIgnoreCase(title);
     }
 
-    public List<StudySession> findByTopicId(ObjectId topicId){
-        return studySessionRepository.findByTopicId(topicId);
-    }
-
-    public List<StudySession> findByDurationMinutes(int durationMinutes){
+    public List<StudySession> getByDurationMinutes(int durationMinutes){
         return studySessionRepository.findByDurationMinutes(durationMinutes);
     }
 
-    public List<StudySession> updateStudySession(ObjectId topicId, StudySessionDTO dto){
-        List<StudySession> existes = studySessionRepository.findByTopicId(topicId);
+    public List<StudySession> updateStudySession(String title, StudySessionDTO dto){
+        List<StudySession> existes = studySessionRepository.findByTopicTitleContainingIgnoreCase(title);
 
         for (StudySession s : existes){
-            s.setTopicId(dto.getTopicId());
+            s.setTopic(dto.getTopic());
             s.setDurationMinutes(dto.getDurationMinutes());
             s.setStartTime(dto.getStartTime());
             s.setEndTime(dto.getEndTime());
@@ -61,8 +58,8 @@ public class StudySessionService {
         return existes;
     }
 
-    public boolean deleteStudySession(ObjectId topicId){
-        List<StudySession> studySessions = studySessionRepository.findByTopicId(topicId);
+    public boolean deleteStudySession(String title){
+        List<StudySession> studySessions = studySessionRepository.findByTopicTitleContainingIgnoreCase(title);
 
         if (!studySessions.isEmpty()){
             studySessionRepository.deleteAll(studySessions);

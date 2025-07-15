@@ -16,9 +16,8 @@ public interface StudySessionRepository extends MongoRepository<StudySession, St
     @Override
     List<StudySession> findAll();
 
-    List<StudySession> findByUserId(ObjectId userId);
 
-    List<StudySession> findByTopicId(ObjectId topicId);
+    List<StudySession> findByTopicTitleContainingIgnoreCase(String title);
 
     List<StudySession> findByDurationMinutes(int durationMinutes);
 }

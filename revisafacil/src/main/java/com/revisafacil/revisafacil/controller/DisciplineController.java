@@ -45,11 +45,6 @@ public class DisciplineController {
         return new ResponseEntity<>(disciplines, HttpStatus.OK);
     }
 
-    @GetMapping("/user-id")
-    public ResponseEntity<List<Discipline>> getDisciplineByUserId(@RequestParam ObjectId userId){
-        List<Discipline> disciplines = disciplineService.getDisciplineByUserId(userId);
-        return new ResponseEntity<>(disciplines, HttpStatus.OK);
-    }
 
     @GetMapping("/create-at")
     public ResponseEntity<List<Discipline>> getDisciplineByDate(@RequestParam LocalDate createAt){

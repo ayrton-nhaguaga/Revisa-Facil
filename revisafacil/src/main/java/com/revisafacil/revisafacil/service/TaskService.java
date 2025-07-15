@@ -31,28 +31,28 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public List<Task> findAll(){
+    public List<Task> getAll(){
         return taskRepository.findAll();
     }
 
 
-    public List<Task> findByTitleContainigIgnoreCase(String title){
+    public List<Task> getByTitleContainingIgnoreCase(String title){
         return taskRepository.findByTitleContainingIgnoreCase(title);
     }
 
-    public List<Task> findByTopicId(ObjectId topicId){
+    public List<Task> getByTopicId(ObjectId topicId){
         return taskRepository.findByTopicId(topicId);
     }
 
-    public List<Task> findByDueDate(LocalDateTime dueDate){
+    public List<Task> getByDueDate(LocalDateTime dueDate){
         return taskRepository.findByDueDate(dueDate);
     }
 
-    public List<Task> findByStatus(TaskStatus status){
+    public List<Task> getByStatus(TaskStatus status){
         return taskRepository.findByStatus(status);
     }
 
-    public List<Task> findByCreatedAt(LocalDateTime createdAt){
+    public List<Task> getByCreatedAt(LocalDateTime createdAt){
         return taskRepository.findByCreatedAt(createdAt);
     }
 

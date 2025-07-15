@@ -15,7 +15,7 @@ public class StudySession {
     private ObjectId id;
 
     private ObjectId userId;
-    private ObjectId topicId;
+    private Topic topic;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private int durationMinutes;

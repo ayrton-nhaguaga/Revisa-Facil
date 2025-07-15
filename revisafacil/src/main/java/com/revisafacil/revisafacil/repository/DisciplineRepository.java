@@ -15,7 +15,6 @@ public interface DisciplineRepository extends MongoRepository<Discipline, String
 
     Optional<Discipline> findById(ObjectId id);
 
-    List<Discipline> findByUserId(ObjectId userId);
 
     List<Discipline> findByNameContainingIgnoreCase(String name);
 
