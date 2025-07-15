@@ -37,7 +37,7 @@ public class TaskService {
 
 
     public List<Task> findByTitleContainigIgnoreCase(String title){
-        return taskRepository.findByTitleContainigIgnoreCase(title);
+        return taskRepository.findByTitleContainingIgnoreCase(title);
     }
 
     public List<Task> findByTopicId(ObjectId topicId){
@@ -52,12 +52,12 @@ public class TaskService {
         return taskRepository.findByStatus(status);
     }
 
-    public List<Task> findByCreateDate(LocalDateTime createdAt){
-        return taskRepository.findByCreateDate(createdAt);
+    public List<Task> findByCreatedAt(LocalDateTime createdAt){
+        return taskRepository.findByCreatedAt(createdAt);
     }
 
     public List<Task> updateTask(String title, TaskDTO dto){
-        List<Task> existes = taskRepository.findByTitleContainigIgnoreCase(title);
+        List<Task> existes = taskRepository.findByTitleContainingIgnoreCase(title);
 
         for (Task t : existes){
             t.setTitle(dto.getTitle());
@@ -71,7 +71,7 @@ public class TaskService {
     }
 
     public boolean deleteTask(String title){
-        List<Task> tasks = taskRepository.findByTitleContainigIgnoreCase(title);
+        List<Task> tasks = taskRepository.findByTitleContainingIgnoreCase(title);
 
         if (!tasks.isEmpty()){
             taskRepository.deleteAll(tasks);

@@ -44,8 +44,8 @@ public class StudySessionService {
         return studySessionRepository.findByTopicId(topicId);
     }
 
-    public List<StudySession> findByDuration(int duration){
-        return studySessionRepository.findByDuration(duration);
+    public List<StudySession> findByDurationMinutes(int durationMinutes){
+        return studySessionRepository.findByDurationMinutes(durationMinutes);
     }
 
     public List<StudySession> updateStudySession(ObjectId topicId, StudySessionDTO dto){

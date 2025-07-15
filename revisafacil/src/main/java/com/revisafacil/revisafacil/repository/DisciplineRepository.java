@@ -22,5 +22,5 @@ public interface DisciplineRepository extends MongoRepository<Discipline, String
     @Override
     List<Discipline> findAll();
 
-    List<Discipline> findByDate(LocalDate date);
+    List<Discipline> findByCreateAt(LocalDate createAt);
 }

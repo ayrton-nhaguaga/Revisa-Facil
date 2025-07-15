@@ -20,7 +20,7 @@ public class TopicService {
     public Topic createTopic(TopicDTO dto){
         Topic topic = new Topic();
         topic.setId(dto.getId());
-        topic.setDisciplineId(dto.getDisciplineId());
+        topic.setDiscipline(dto.getDiscipline());
         topic.setTitle(dto.getTitle());
         topic.setContent(dto.getContent());
         topic.setResources(dto.getResources());
@@ -29,37 +29,37 @@ public class TopicService {
         return topicRepository.save(topic);
     }
 
-    public List<Topic> findAll(){
+    public List<Topic> getAll(){
         return topicRepository.findAll();
     }
 
-    public Optional<Topic> findById (ObjectId id){
+    public Optional<Topic> getById (ObjectId id){
         return topicRepository.findById(id);
     }
 
-    public List<Topic> findByDisciplineId(ObjectId disciplineId){
-        return topicRepository.findByDisciplineId(disciplineId);
+    public List<Topic> getByDisciplineNameIgnoreCase(String name){
+        return topicRepository.findByDisciplineNameIgnoreCase(name);
     }
 
-    public List<Topic> findByTitleContaningIgnoreCase(String title){
-        return topicRepository.findByTitleContaningIgnoreCase(title);
+    public List<Topic> getByTitleContaningIgnoreCase(String title){
+        return topicRepository.findByTitleContainingIgnoreCase(title);
     }
 
-    public List<Topic> findByContentIgnoreCase(String content){
+    public List<Topic> getByContentIgnoreCase(String content){
         return topicRepository.findByContentIgnoreCase(content);
     }
 
-    public List<Topic> findByCopleted(Boolean completed){
-        return topicRepository.findByCopleted(completed);
+    public List<Topic> getByCompleted(Boolean completed){
+        return topicRepository.findByCompleted(completed);
     }
 
     public List<Topic> updateTopic(String title, TopicDTO dto){
-        List<Topic> existes = topicRepository.findByTitleContaningIgnoreCase(title);
+        List<Topic> existes = topicRepository.findByTitleContainingIgnoreCase(title);
 
         for (Topic t : existes){
             t.setTitle(dto.getTitle());
             t.setCompleted(dto.getCompleted());
-            t.setDisciplineId(dto.getDisciplineId());
+            t.setDiscipline(dto.getDiscipline());
             t.setResources(dto.getResources());
             t.setContent(dto.getContent());
             topicRepository.save(t);
@@ -68,7 +68,7 @@ public class TopicService {
     }
 
     public boolean deleteTopic(String title){
-        List<Topic> topics = topicRepository.findByTitleContaningIgnoreCase(title);
+        List<Topic> topics = topicRepository.findByTitleContainingIgnoreCase(title);
 
         if (!topics.isEmpty()){
             topicRepository.deleteAll(topics);

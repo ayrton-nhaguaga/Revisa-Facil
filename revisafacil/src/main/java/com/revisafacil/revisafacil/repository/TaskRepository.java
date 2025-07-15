@@ -20,7 +20,7 @@ public interface TaskRepository extends MongoRepository<Task, String> {
     @Override
     List<Task> findAll();
 
-    List<Task> findByTitleContainigIgnoreCase(String title);
+    List<Task> findByTitleContainingIgnoreCase(String title);
 
     List<Task> findByTopicId(ObjectId topicId);
 
@@ -28,5 +28,5 @@ public interface TaskRepository extends MongoRepository<Task, String> {
 
     List<Task> findByStatus(TaskStatus status);
 
-    List<Task> findByCreateDate(LocalDateTime createdAt);
+    List<Task> findByCreatedAt(LocalDateTime createdAt);
 }

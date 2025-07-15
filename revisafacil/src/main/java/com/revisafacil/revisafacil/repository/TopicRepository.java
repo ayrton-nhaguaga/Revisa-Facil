@@ -13,13 +13,13 @@ public interface TopicRepository extends MongoRepository<Topic, String> {
 
     Optional<Topic> findById (ObjectId id);
 
-    List<Topic> findByDisciplineId(ObjectId disciplineId);
+    List<Topic> findByDisciplineNameIgnoreCase(String name);
 
-    List<Topic> findByTitleContaningIgnoreCase(String title);
+    List<Topic> findByTitleContainingIgnoreCase(String title);
 
     List<Topic> findByContentIgnoreCase(String content);
 
-    List<Topic> findByCopleted(Boolean completed);
+    List<Topic> findByCompleted(Boolean completed);
 
     @Override
     List<Topic> findAll();

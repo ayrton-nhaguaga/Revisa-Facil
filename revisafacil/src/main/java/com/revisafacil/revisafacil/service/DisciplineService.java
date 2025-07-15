@@ -45,7 +45,7 @@ public class DisciplineService {
     }
 
     public List<Discipline> getDisciplineByDate(LocalDate createAt){
-        return disciplineRepository.findByDate(createAt);
+        return disciplineRepository.findByCreateAt(createAt);
     }
 
     public List<Discipline> updateDisciplineByName(String name, DisciplineDTO dto){

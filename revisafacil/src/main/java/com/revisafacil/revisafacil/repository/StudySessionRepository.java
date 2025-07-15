@@ -20,5 +20,5 @@ public interface StudySessionRepository extends MongoRepository<StudySession, St
 
     List<StudySession> findByTopicId(ObjectId topicId);
 
-    List<StudySession> findByDuration(int duration);
+    List<StudySession> findByDurationMinutes(int durationMinutes);
 }

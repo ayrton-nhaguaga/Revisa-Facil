@@ -1,5 +1,6 @@
 package com.revisafacil.revisafacil.dto;
 
+import com.revisafacil.revisafacil.model.Discipline;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,7 +16,7 @@ public class TopicDTO {
     private ObjectId id;
 
     @NotBlank
-    private ObjectId disciplineId;
+    private Discipline discipline;
 
     @NotBlank
     @Size(min = 0, max = 50)

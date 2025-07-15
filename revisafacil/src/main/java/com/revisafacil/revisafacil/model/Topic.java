@@ -15,7 +15,7 @@ public class Topic {
     @Id
     private ObjectId id;
 
-    private ObjectId disciplineId;
+    private Discipline discipline;
     private String title;
     private String content;
     private List<String> resources;
