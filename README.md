@@ -1,4 +1,4 @@
-# 📚 StudyTracker - Backend
+# 📚 RevisaFacil - Backend
 
 Este é o backend de um sistema de auxílio aos estudos, desenvolvido com **Spring Boot** e **MongoDB**, com foco em organização de disciplinas, tópicos, tarefas e sessões de estudo.
 
